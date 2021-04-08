@@ -1,0 +1,11 @@
+.task {
+  padding: 10px;
+}
+.task .title {
+  width: 90px;
+}
+.task .remove {
+  padding-left: 95px;
+}
+
+/*# sourceMappingURL=list.component.css.map */

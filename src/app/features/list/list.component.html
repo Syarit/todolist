@@ -1,0 +1,24 @@
+<div>
+  <div>
+    <button (click)="addTask(tempoTask)">Add Task</button>
+  </div>
+
+  <div class="tasks">
+    <div class="task" *ngFor="let task of listTasks; let i = index">
+      <div>
+        <span class="title">Task {{i+1}}</span>
+        <span class="remove">
+          <button (click)="removeTask(task.task_id)">X</button>
+        </span>
+      </div>
+      <div>
+        <span class="title">{{task.name}}</span>
+        <!-- ajouter un mode edition où un input remplace le span-->
+      </div>
+      <div>
+        <span class="title">{{task.description}}</span>
+        <!-- ajouter un mode edition où un input remplace le span-->
+      </div>
+    </div>
+  </div>
+</div>
