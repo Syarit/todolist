@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UsersComponent } from './features/users/users/users.component';
+import { UsersComponent } from './features/users/users.component';
 
 @NgModule({
   declarations: [
