@@ -12,7 +12,7 @@
   <span class="link" [routerLink]="'signup'">Sign up</span>
   </div>
   <div *ngIf="authState!=null">
-    <span class="link">{{authState.displayName}}</span>
+    <span>{{authState.displayName}}</span>
     <span class="gap"></span>
   <span class="link" (click)="signout()">Sign out</span>
 </div>
