@@ -1,0 +1,26 @@
+<h1 class="header">Login</h1>
+<mat-card class="container">
+  <mat-form-field color="accent">
+          <mat-label>Email address</mat-label>
+          <input type="email" matInput cdkFocusInitial [(ngModel)]="user.email">
+  </mat-form-field><br/>
+        <mat-form-field color="accent">
+          <mat-label>Password</mat-label>
+          <input type="password" matInput [(ngModel)]="user.password">
+        </mat-form-field><br/>
+    <label class="error">{{errorMessage}}</label><br/>
+  <mat-dialog-actions>
+    <button mat-button (click)="tryLogin()">Login</button>
+  </mat-dialog-actions>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <button type="button" class="btn btn-danger btn-block" (click)="tryGoogleLogin()"><img
+        src="https://www.google.fr/images/branding/googlelogo/2x/googlelogo_color_160x56dp.png" style="height: 30px"></button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <p>No account yet? <a [routerLink]="'/signup'">Create an account</a></p>
+    </div>
+  </div>
+</mat-card>

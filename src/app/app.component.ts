@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import {MatDialog} from '@angular/material/dialog';
-import {AngularFirestore} from '@angular/fire/firestore';
 import {Observable} from 'rxjs';
-import {Task} from './Models/Task';
-import {CdkDragDrop, transferArrayItem} from '@angular/cdk/drag-drop';
+import {AngularFireAuth} from '@angular/fire/auth';
+import firebase from 'firebase/app';
+import {AuthService} from './features/service/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +12,15 @@ import {CdkDragDrop, transferArrayItem} from '@angular/cdk/drag-drop';
 })
 export class AppComponent {
   title = 'todolist';
+  authState: firebase.User | null = null;
 
-  constructor() { }
+  constructor(private authService: AuthService, private router: Router) {
+    authService.getConnectedUser().then(res => this.authState = res);
+  }
+
+  signout(): void {
+    this.authService.doLogout().then(res => {
+      this.router.navigate(['/login']);
+    });
+  }
 }
