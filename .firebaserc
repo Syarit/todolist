@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "pr70-todo": {
+      "hosting": {
+        "todolist": [
+          "pr70-todo"
+        ]
+      }
+    }
+  }
+}
