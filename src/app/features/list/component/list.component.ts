@@ -13,7 +13,7 @@ import {AuthService} from '../../service/auth.service';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class ListComponent implements DoCheck {
+export class ListComponent {
 
   connectedUser: any = null;
 
@@ -24,10 +24,6 @@ export class ListComponent implements DoCheck {
 
 
   constructor(private dialog: MatDialog, private store: AngularFirestore, private authService: AuthService) {
-    this.update();
-  }
-
-  ngDoCheck(): void {
     this.update();
   }
 
