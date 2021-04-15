@@ -24,7 +24,6 @@ export class AuthService {
       const provider = new firebase.auth.GoogleAuthProvider();
       provider.addScope('profile');
       provider.addScope('email');
-      provider.addScope('name');
       this.afAuth
         .signInWithPopup(provider)
         .then(res => {

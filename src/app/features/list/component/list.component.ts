@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, DoCheck, OnInit} from '@angular/core';
 import {Task} from '../../../Models/Task';
 import {Observable} from 'rxjs';
 import {MatDialog} from '@angular/material/dialog';
@@ -13,7 +13,7 @@ import {AuthService} from '../../service/auth.service';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class ListComponent {
+export class ListComponent implements DoCheck {
 
   connectedUser: any = null;
 
@@ -24,6 +24,14 @@ export class ListComponent {
 
 
   constructor(private dialog: MatDialog, private store: AngularFirestore, private authService: AuthService) {
+    this.update();
+  }
+
+  ngDoCheck(): void {
+    this.update();
+  }
+
+  update(): void {
     this.authService.getConnectedUser().then(res => {
       this.connectedUser = res;
       this.todo = this.store.collection(`${this.connectedUser?.l}-todo`)
@@ -33,7 +41,7 @@ export class ListComponent {
       this.done = this.store.collection(`${this.connectedUser?.l}-done`)
         .valueChanges({idField: 'task_id'}) as unknown as Observable<Task[]>;
     });
-}
+  }
 
   drop(event: CdkDragDrop<Task[] | null>): void {
     if (event.previousContainer === event.container) {
